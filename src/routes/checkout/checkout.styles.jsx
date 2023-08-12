@@ -1,4 +1,6 @@
-.checkout-container {
+import styled from 'styled-components'
+
+export const CheckoutContainer = styled.div`
   width: 55%;
   min-height: 90vh;
   flex-direction: column;
@@ -29,4 +31,4 @@
     float: right;
     font-size: 36px;
   }
-}
+`
