@@ -1,3 +1,10 @@
+# About
+
+A mock shopping website called Crwn Clothing. Brought to life using React, Netlify, GraphQL, and Redux. The site simulates
+a modern shopping experience which includes Google login, adding to cart, and checkout.
+The site was designed by the creators of Zero To Mastery (https://zerotomastery.io/).
+A preview of my version of the site can be found here: https://scintillating-bienenstitch-012b57.netlify.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
