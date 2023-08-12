@@ -10,8 +10,6 @@
 
 # production
 /build
-/src/utils
-/src/shop-data.js
 
 # misc
 .DS_Store
