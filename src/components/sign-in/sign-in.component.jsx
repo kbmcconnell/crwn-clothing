@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import {
-  createUserDocumentFromAuth,
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase.utils'
 import FormInput from '../form-input/form-input.component'
 import { SignInContainer } from './sign-in.styles'
-import Button from '../button/button.component'
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component'
 
 const defaultFormFields = {
   email: '',
@@ -28,7 +27,7 @@ const SignIn = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const {user} = await signInAuthUserWithEmailAndPassword(email, password)
+      await signInAuthUserWithEmailAndPassword(email, password)
       resetFormFields()
     } catch (error) {
       switch(error.code) {
@@ -73,7 +72,13 @@ const SignIn = () => {
         />
         <div className='buttons-container'>
           <Button type='submit'>Sign in</Button>
-          <Button buttonType='google' onClick={signInWithGoogle}>Google sign in</Button>
+          <Button
+            buttonType={BUTTON_TYPE_CLASSES.google}
+            type='button'
+            onClick={signInWithGoogle}
+          >
+            Google sign in
+          </Button>
         </div>
       </form>
     </SignInContainer>
