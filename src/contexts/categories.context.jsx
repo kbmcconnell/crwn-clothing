@@ -1,11 +1,11 @@
-import {createContext, useEffect, useState} from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { getCategoriesAndDocuments } from '../utils/firebase/firebase.utils'
 
 export const CategoriesContext = createContext({
   categoriesMap: {},
 })
 
-export const CategoriesProvider = ({children}) => {
+export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({})
 
   // to use the async function getCategoriesAndDocuments() in useEffect() we need to wrap the function in a separate
