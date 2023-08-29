@@ -1,3 +1,5 @@
+// TODO deprecated due to switching to redux store
+
 import { createContext, useEffect, useReducer } from 'react'
 import { createUserDocumentFromAuth, onAuthStateChangedListener } from '../utils/firebase/firebase.utils'
 import { createAction } from '../utils/reducer/reducer.utils'

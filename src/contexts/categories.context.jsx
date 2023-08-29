@@ -1,3 +1,5 @@
+// TODO deprecated due to switching to redux store
+
 import { createContext, useEffect, useState } from 'react'
 import { getCategoriesAndDocuments } from '../utils/firebase/firebase.utils'
 
