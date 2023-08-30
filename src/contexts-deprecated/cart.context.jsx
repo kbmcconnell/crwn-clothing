@@ -1,3 +1,5 @@
+// TODO deprecated - using redux store
+
 import { createContext, useReducer } from 'react'
 import { createAction } from '../utils/reducer/reducer.utils'
 

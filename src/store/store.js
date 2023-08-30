@@ -1,6 +1,6 @@
 // this is where state lives, where we receive actions and dispatch them to the reducers to update the state
 import { compose, createStore, applyMiddleware } from 'redux'
-import logger from 'redux-logger'
+// import logger from 'redux-logger'
 import { rootReducer } from './root-reducer'
 
 const loggerMiddleware = (store) => (next) => (action) => {
