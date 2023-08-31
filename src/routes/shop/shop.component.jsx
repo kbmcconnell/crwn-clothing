@@ -3,19 +3,12 @@ import { useDispatch } from 'react-redux'
 import CategoriesPreview from '../categories-preview/categories-preview.component'
 import Category from '../category/category.component'
 import { useEffect } from 'react'
-import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils'
-import { setCategories } from '../../store/categories/category.action'
+import { fetchCategoriesAsync } from '../../store/categories/category.action'
 
 const Shop = () => {
   const dispatch = useDispatch()
-  // to use the async function getCategoriesAndDocuments() in useEffect() we need to wrap the function in a separate
-  // async function then call the function at the end of useEffect()
   useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoriesArray = await getCategoriesAndDocuments('categories')
-      dispatch(setCategories(categoriesArray))
-    }
-    getCategoriesMap()
+    dispatch(fetchCategoriesAsync())
   }, []) // the empty array means this is only called when the app is mounted
 
   return (
