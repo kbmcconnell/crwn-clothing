@@ -76,7 +76,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInfo = {}) 
       console.log('error creating user', error.message)
     }
   }
-  return userDocRef
+  return userSnapshot
 }
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -94,3 +94,19 @@ export const signOutUser = async () => await signOut(auth)
 // as it is, it's an always listening method which will cause a memory leak - we don't need it listening whenever
 // auth is unmounted
 export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback)
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    // onAuthStateChanged is an async method from firebase
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        // this ensures the listener stops immediately, rather than causing a memory leak
+        unsubscribe()
+        resolve(userAuth)
+      },
+      // callback that runs if an error is encountered
+      reject
+    )
+  })
+}
